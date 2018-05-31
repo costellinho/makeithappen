@@ -12,13 +12,14 @@
 
 <body>
 
+  <form id="frm1" onsubmit="myFunction()" >
+    <input type="submit" style="display: none" value="Send">
+    <input class="tb2" type="text" name="lname" style="z-index:101; position:absolute;width: 200px;height: 50px;top: 550px;right: 85px;"><br><br>
+  </form>
+
   <canvas></canvas>
 
-<form id="frm1">
-  Last name: <input class="tb2" type="text" name="lname" style="z-index:101; position:absolute; bottom:200px;"><br><br>
-  <input type="button" class="button" onclick="myFunction()" value="Submit" style="z-index:101; position:absolute; bottom:100px; left:220px;"/>
-</form>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/gameScript.js"></script>
 
 </body>

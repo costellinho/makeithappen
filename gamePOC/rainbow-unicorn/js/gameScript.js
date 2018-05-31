@@ -1,7 +1,7 @@
 function myFunction() {
    var x = document.forms["frm1"]["lname"].value;
-   alert(gameContent["levels"][POP.level - 1]["word"]);
    updateGame();
+   return false;
 }
 
 function updateGame(){
@@ -10,13 +10,31 @@ function updateGame(){
   performDrawOperations();
 }
 
+$(function(){
+  $('#frm1').submit(function () {
+  console.log("Hello");
+   myFunction();
+   return false;
+  });
+});
+
+
 function clearTheCanvas(){
   POP.Draw.clear();
 }
 
 function performDrawOperations(){
-  POP.Draw.text("LEVEL: " + POP.level, 100, 100, 40, '#000');
-  POP.Draw.text("SCORE: " + POP.score, 100, 200, 40, '#000');
+  simpleAnimate();
+  POP.Draw.text(POP.score + "/" + POP.level, 200, (POP.currentHeight + 20) - POP.currentHeight, 20, '#000');
+}
+
+function wait(ms)
+{
+POP.Draw.clear();
+var d = new Date();
+var d2 = null;
+do { d2 = new Date(); }
+while(d2-d < ms);
 }
 
 function updateScore(){
@@ -27,6 +45,25 @@ function updateScore(){
   }
 }
 
+function simpleAnimate(){
+  POP.Draw.rect(75,150,40,40, 'pink');
+  wait(100);
+  POP.Draw.rect(95,150,40,40, 'pink');
+  wait(100);
+  POP.Draw.rect(105,150,40,40, 'pink');
+  wait(100)
+  POP.Draw.rect(125,150,40,40, 'pink');
+  wait(100);
+  POP.Draw.rect(145,150,40,40, 'pink');
+  wait(100);
+  POP.Draw.rect(150,70,40,40, 'pink');
+}
+
+var test = "test";
+
+var spriteR = new Image();
+spriteR.src = "images/sprite.png";
+
 //put game conent here like words, files ...
 var gameContent = {
 "levels":[
@@ -35,8 +72,8 @@ var gameContent = {
 };
 
 var POP = {
-    WIDTH: 320,
-    HEIGHT:  480,
+    WIDTH: 250,
+    HEIGHT:  450,
     RATIO:  null,
     currentWidth:  null,
     currentHeight:  null,
@@ -46,6 +83,7 @@ var POP = {
     level: 1,
 
     init: function() {
+
         POP.RATIO = POP.WIDTH / POP.HEIGHT;
         POP.currentWidth = POP.WIDTH;
         POP.currentHeight = POP.HEIGHT;
@@ -58,17 +96,15 @@ var POP = {
         POP.resize();
 
         POP.Draw.clear();
-        POP.Draw.rect(120,120,150,150, 'pink');
-        POP.Draw.text('Text to speach : How do you spell cat ', 100, 100, 10, '#000');
+
+        POP.Draw.rect(75,150,40,40, 'pink');
     },
 
     // resizes for Iphone and android
     resize: function() {
         POP.currentHeight = window.innerHeight;
         POP.currentWidth = POP.currentHeight * POP.RATIO;
-        if (POP.android || POP.ios) {
-            document.body.style.height = (window.innerHeight + 50) + 'px';
-        }
+
         POP.canvas.style.width = POP.currentWidth + 'px';
         POP.canvas.style.height = POP.currentHeight + 'px';
 
@@ -80,9 +116,6 @@ var POP = {
         POP.ios = ( POP.ua.indexOf('iphone') > -1 || POP.ua.indexOf('ipad') > -1  ) ?
             true : false;
 
-        if (POP.android || POP.ios) {
-            document.body.style.height = (window.innerHeight + 50) + 'px';
-        }
     }
 
 };
@@ -110,6 +143,18 @@ POP.Draw = {
     }
 
 };
+
+function sprite (options) {
+
+    var that = {};
+
+    that.context = options.context;
+    that.width = options.width;
+    that.height = options.height;
+    that.image = options.image;
+
+    return that;
+}
 
 window.addEventListener('load', POP.init, false);
 window.addEventListener('resize', POP.resize, false);
