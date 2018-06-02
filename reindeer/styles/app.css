@@ -1,0 +1,13 @@
+/*big blue button*/
+.startbutton {
+    background: #2FA7FD;
+    box-shadow: 0 6px 14px 0 rgba(71,77,83,0.29);
+    border-radius: 8px;
+}
+/*big blue button text*/
+.startbuttontext {
+    font-family: OpenSans-Bold;
+    font-size: 38px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
