@@ -1,5 +1,5 @@
 // START THE GAME
-$("#startButton").click(function(event){
+$("#startButton").on("touchstart click", function(event){
     $("#start").hide();
     game.start();
 
@@ -10,7 +10,7 @@ $("#startButton").click(function(event){
 });
 
 //PLAY THE SOUND
-$("#playSoundButton").click(function(event){
+$("#playSoundButton").on("touchstart click", function(event){
     $("#playSoundButtonText").text("Playing");
     $.playSound("./audio/"+game.levels[game.level][game.question].word.toLowerCase()+".mp3");
     setTimeout(function(){ $("#playSoundButtonText").text("Play Again"); }, 2000);
@@ -50,7 +50,7 @@ $(function(){
 });
 
 //NEXT BUTTON
-$("#nextButton").click(function(event){
+$("#nextButton").on("touchstart click", function(event){
     $("#playSoundButtonText").text("Play Sound");
 
     if(game.question === game.levels[game.level].length){
@@ -65,13 +65,13 @@ $("#nextButton").click(function(event){
 });
 
 //BACK BUTTON
-$("#backButton").click(function(event){
+$("#backButton").on("touchstart click", function(event){
     $("#game").hide();
     $("#start").show();
 });
 
 //FINISH THE GAME
-$("#finishButton").click(function(event){
+$("#finishButton").on("touchstart click", function(event){
     $("#finish").hide();
     $("#start").show();
 });
