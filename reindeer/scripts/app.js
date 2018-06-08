@@ -11,9 +11,13 @@ $("#startButton").on("touchstart click", function(event){
 
 //PLAY THE SOUND
 $("#playSoundButton").on("touchstart click", function(event){
-    $("#playSoundButtonText").text("Playing");
+    $("#playSoundButtonText").text("Playing... ");
+    $('#playSoundButton').css('background-image','url(assets/playing.svg)');
     $.playSound("./audio/"+game.levels[game.level][game.question].word.toLowerCase()+".mp3");
-    setTimeout(function(){ $("#playSoundButtonText").text("Play Again"); }, 2000);
+    setTimeout(function(){
+        $("#playSoundButtonText").text("Play Again");
+        $('#playSoundButton').css('background-image','url(assets/play_again.svg)');
+        }, 2000);
 });
 
 //CAPTURE THE ANSWER
@@ -24,15 +28,18 @@ $(function(){
         }
         var spellInput = $('#spellInput');
         var spellResult = $('#spellResult');
+        var nextButton = $('#nextButton');
         var answer = spellInput.val();
         var correct = answer.toLowerCase() === game.levels[game.level][game.question].word.toLowerCase();
         if(correct) {
             game.score += 1;
             spellResult.text("Correct");
             spellResult.removeClass("btn-danger").addClass("btn-success");
+            nextButton.removeClass("btn-danger").addClass("btn-success");
         }else{
             spellResult.text("Incorrect");
             spellResult.removeClass("btn-success").addClass("btn-danger");
+            nextButton.removeClass("btn-success").addClass("btn-danger");
         }
 
         $("#spellInputGroup").hide();
@@ -52,6 +59,7 @@ $(function(){
 //NEXT BUTTON
 $("#nextButton").on("touchstart click", function(event){
     $("#playSoundButtonText").text("Play Sound");
+    $('#playSoundButton').css('background-image','url(assets/play.svg)');
 
     if(game.question === game.levels[game.level].length){
         game.finish();

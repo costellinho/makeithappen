@@ -20,25 +20,25 @@
 <div class="container">
 
     <div id="start">
-        <div class="jumbotron">
+        <div class="jumbotron startScreen">
             <h1>Reindeer Rainbows</h1>
-            <a id="startButton" class="btn btn-lg btn-success startbutton" href="#" role="button"><span class="startbuttontext">Start</span></a>
+            <a id="startButton" class="btn btn-lg btn-success startButton" href="#" role="button"><span class="startButtonText">Start</span></a>
         </div>
     </div>
 
     <div id="game" style="display: none">
-        <div class="jumbotron">
+        <div class="jumbotron mainScreen">
             <div>
-                <button type="button" class="btn btn-default navbar-btn pull-left" id="backButton">
-                    <span>Back</span>
+                <button type="button" class="btn btn-default navbar-btn pull-left backButton" id="backButton">
+                    <img src="assets/back.svg" height="20"/>
                 </button>
-                <button type="button" class="btn btn-default navbar-btn pull-right">
-                    <span id="score"></span>
-                </button>
+                <div>
+                    <span id="score" class="levelCount"></span>
+                </div>
             </div>
 
-            <div id="spellInputGroup">
-                <a id="playSoundButton" class="btn btn-lg btn-success startbutton" href="#" role="button"><span class="playSoundButtonText" id="playSoundButtonText">Play Sound</span></a>
+            <div id="spellInputGroup" class="spellGroup">
+                <a id="playSoundButton" class="btn btn-lg btn-success playSoundButton" href="#" role="button"><span class="playSoundButtonText" id="playSoundButtonText">Play Sound</span></a>
 
                 <form id="spellForm">
                     <div class="form-group">
@@ -48,17 +48,16 @@
                     </div>
                 </form>
             </div>
-            <div id="spellCheckGroup" style="display: none">
-                <div class="btn btn-lg" id="spellResult"></div><a id="nextButton" class="btn btn-lg btn-success startbutton" href="#" role="button"><span class="playSoundButtonText">&gt;&gt;</span></a>
+            <div id="spellCheckGroup" style="display: none" class="spellGroup">
+                <div class="btn btn-lg spellResult" id="spellResult"></div><a id="nextButton" class="btn btn-lg btn-success spellResultButtonText" href="#" role="button"><span class="nextButtonText">NEXT</span></a>
             </div>
-            </div>
+        </div>
     </div>
 
     <div id="finish" style="display: none">
-        <div class="jumbotron">
-            <h1>Well Done!</h1>
-            <h2 id="finalscore"></h2>
-            <a id="finishButton" class="btn btn-lg btn-success startbutton" href="#" role="button"><span class="startbuttontext">Finish</span></a>
+        <div class="jumbotron finish">
+            <h1 class="finishMessage">Well Done!</h1><h1 class="finishMessage">You got</h1><h2 id="finalscore" class="correctNumberCount"></h2><h1 class="finishMessage">Correct</h1>
+            <a id="finishButton" class="btn btn-lg btn-success startButton" href="#" role="button"><span class="startButtonText">Finish</span></a>
         </div>
     </div>
 
