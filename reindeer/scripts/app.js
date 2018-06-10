@@ -105,5 +105,20 @@ var game = {
     },
     finish: function () {
         this.started = false;
+    },
+    myMove: function() {
+    var elem = document.getElementById("myAnimation");
+    var pos = 0;
+    var id = setInterval(frame, 2);
+    var initialLeft = elem.style.left;
+    function frame() {
+      if (pos == 280) {
+        clearInterval(id);
+        elem.style.left = initialLeft;
+      } else {
+        pos++;
+        elem.style.left = pos + 'px';
+      }
     }
+  }
 };
