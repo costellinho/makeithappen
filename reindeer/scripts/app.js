@@ -32,6 +32,7 @@ $(function(){
         var answer = spellInput.val();
         var correct = answer.toLowerCase() === game.levels[game.level][game.question].word.toLowerCase();
         if(correct) {
+            game.myMove();
             game.score += 1;
             spellResult.text("Correct");
             spellResult.removeClass("btn-danger").addClass("btn-success");
