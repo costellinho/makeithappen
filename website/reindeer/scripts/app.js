@@ -11,13 +11,18 @@ $("#startButton").on("touchstart click", function(event){
 //PLAY THE SOUND
 $("#playSoundButton").on("touchstart click", function(event){
     $("#playSoundButtonText").text("Playing...");
-    $.playSound("./audio/"+game.levels[game.level][game.question].word.toLowerCase()+".mp3");
+	$('#playSoundButton').css('background-image','url(assets/playing.svg)');
+    $.playSound("./audio/"+ getAudioFileName()+ ".mp3");
      setTimeout(function(){
         $("#playSoundButtonText").text("Play Again");
         $('#playSoundButton').css('background-image','url(assets/play_again.svg)');
         }, 2000);
 });
 
+function getAudioFileName() {
+	var question = game.levels[game.level][game.question]
+	return question.word.replace('_', question.answers[question.correct] ).toLowerCase()
+}
 function setupQuestion () {
 
     $("#score").text(game.score + ' / ' + game.levels[game.level].length);
@@ -78,7 +83,7 @@ function checkAnswer(index) {
 //NEXT BUTTON
 $("#nextButton").on("touchstart click", function(event){
     $("#playSoundButtonText").text("Play Sound");
-$('#playSoundButton').css('background-image','url(assets/play.svg)');
+	$('#playSoundButton').css('background-image','url(assets/play.svg)');
     if(game.question === game.levels[game.level].length){
         game.finish();
         $("#game").hide();
