@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Alien Active Spelling">
+    <meta name="author" content="J.P. Morgan Chase">
+
+    <title>Alien Active Spelling</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./styles/app.css">
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+
+    <div id="start" class="jumbotron">
+        <div class="container-fluid">
+            <h1>Alien Active Spelling</h1>
+            <a id="startButton" class="btn btn-lg btn-success startbutton" href="#" role="button"><span class="startbuttontext">Start</span></a>
+        </div>
+    </div>
+
+    <div id="game" class="jumbotron" style="display: none">
+        <div class="container-fluid">
+            <div class= "row">
+                <div class="col align-self-start">
+                <button type="button" class="btn btn-default back" id="backButton">
+                    <span>Back</span>
+                </button>
+                </div>
+                <div class="col align-self-end">
+                <button type="button" class="btn btn-default score">
+                    <span id="score">0/0</span>
+                </button>
+                </div>
+            </div>
+        </div>
+         <div class ="container-fluid" id="spellInputGroup">
+            <div class="row justify-content-md-center">
+                <div id="gamequestion" class="col-md-auto" id="qt0">
+                    A dark, blocked off tunnel.
+                </div>
+        </div>
+            <div class="row justify-content-md-center">
+                <div id="col align-self-start" class="answer">
+                   ANSWER
+                </div>
+            </div>
+        <div class="row justify-content-md-center">
+                <div class="col-md-auto">
+                    <button type="button" class="btn btn-success gameanswer" id="at0">
+                        CAT
+                    </button>
+                </div>
+                <div class="col-md-auto">
+                    <button type="button" class="btn btn-success gameanswer" id="at1">
+                        CAV
+                    </button>
+                </div>
+                <div class="col-md-auto">
+                    <button type="button" class="btn btn-success gameanswer" id="at2">
+                        CAVE
+                    </button>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col" id="stairwayAnimation">
+                <img class="img-fluid" src="./assets/Stairs.png">
+            </div>
+        </div>    
+    </div>
+    <div id="spellCheckGroup" style="display: none">
+        <div class="btn btn-lg" id="spellResult"></div>
+        <a id="nextButton" class="btn btn-lg btn-success" href="#" role="button">
+            <span class="playSoundButtonText">&gt;&gt;</span></a>
+    </div>
+</div>
+<div id="finish" class="jumbotron"style="display: none">
+            <h1>Well Done!</h1>
+            <h2 id="finalscore"></h2>
+            <a id="finishButton" class="btn btn-lg btn-success startbutton" href="#" role="button"><span class="startbuttontext">Finish</span></a>
+    </div>
+
+</div> <!-- /container -->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+<script src='https://cdn.rawgit.com/admsev/jquery-play-sound/master/jquery.playSound.js'></script>
+
+<script type="text/javascript" src="scripts/app.js"></script>
+
+</body>
+</html>
+
