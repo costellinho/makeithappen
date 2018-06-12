@@ -23,17 +23,17 @@ function setupQuestion () {
     }
 }
 
-$("#a0").on("touchstart click", function(event){
+$("#at0").on("touchstart click", function(event){
     checkAnswer(0);
     event.preventDefault();
     return false;
 });
-$("#a1").on("touchstart click", function(event){
+$("#at1").on("touchstart click", function(event){
     checkAnswer(1);
     event.preventDefault();
     return false;
 });
-$("#a2").on("touchstart click", function(event){
+$("#at2").on("touchstart click", function(event){
     checkAnswer(2);
     event.preventDefault();
     return false;

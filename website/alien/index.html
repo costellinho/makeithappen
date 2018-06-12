@@ -15,62 +15,74 @@
 
 <body>
 
-<div class="container">
+<div class="container-fluid">
 
     <div id="start" class="jumbotron">
+        <div class="container-fluid">
             <h1>Alien Active Spelling</h1>
             <a id="startButton" class="btn btn-lg btn-success startbutton" href="#" role="button"><span class="startbuttontext">Start</span></a>
+        </div>
     </div>
 
     <div id="game" class="jumbotron" style="display: none">
-            <div>
+        <div class="container-fluid">
+            <div class= "row">
+                <div class="col align-self-start">
                 <button type="button" class="btn btn-default back" id="backButton">
                     <span>Back</span>
                 </button>
+                </div>
+                <div class="col align-self-end">
                 <button type="button" class="btn btn-default score">
                     <span id="score">0/0</span>
                 </button>
                 </div>
-             <div class ="container" id="spellInputGroup">
-                <div class="row">
-                        <button type="button" class="btn btn-default gamequestion" id="q0">
-                            <h2 id="qt0">A dark, blocked off tunnel.</h2>
-                        </button>
-                    <br/>
-                </div>
-                <div class="row">
-                    <h2 id="answer"> ANSWER </h2>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button type="button" class="btn btn-success gameanswer" id="a0">
-                            <h2 id="at0">CAT</h2>
-                        </button>
-                    </div>
-                    <div class="col">
-                        <button type="button" class="btn btn-success gameanswer" id="a1">
-                            <h2 id="at1">CAV</h2>
-                        </button>
-                    </div>
-                    <div class="col">
-                        <button type="button" class="btn btn-success gameanswer" id="a2">
-                            <h2 id="at2">CAVE</h2>
-                        </button>
-                    </div>
-                </div>
-            </div>
-                <div id="spellCheckGroup" style="display: none">
-                <div class="btn btn-lg" id="spellResult"></div><a id="nextButton" class="btn btn-lg btn-success startbutton" href="#" role="button"><span class="playSoundButtonText">&gt;&gt;</span></a>
             </div>
         </div>
+         <div class ="container-fluid" id="spellInputGroup">
+            <div class="row justify-content-md-center">
+                <div id="gamequestion" class="col-md-auto" id="qt0">
+                    A dark, blocked off tunnel.
+                </div>
+        </div>
+            <div class="row justify-content-md-center">
+                <div id="col align-self-start" class="answer">
+                   ANSWER
+                </div>
+            </div>
+        <div class="row justify-content-md-center">
+                <div class="col-md-auto">
+                    <button type="button" class="btn btn-success gameanswer" id="at0">
+                        CAT
+                    </button>
+                </div>
+                <div class="col-md-auto">
+                    <button type="button" class="btn btn-success gameanswer" id="at1">
+                        CAV
+                    </button>
+                </div>
+                <div class="col-md-auto">
+                    <button type="button" class="btn btn-success gameanswer" id="at2">
+                        CAVE
+                    </button>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col" id="stairwayAnimation">
+                <img class="img-fluid" src="./assets/Stairs.png">
+            </div>
+        </div>    
     </div>
-
-    <div id="finish" style="display: none">
-        <div class="jumbotron">
+    <div id="spellCheckGroup" style="display: none">
+        <div class="btn btn-lg" id="spellResult"></div>
+        <a id="nextButton" class="btn btn-lg btn-success" href="#" role="button">
+            <span class="playSoundButtonText">&gt;&gt;</span></a>
+    </div>
+</div>
+<div id="finish" class="jumbotron"style="display: none">
             <h1>Well Done!</h1>
             <h2 id="finalscore"></h2>
             <a id="finishButton" class="btn btn-lg btn-success startbutton" href="#" role="button"><span class="startbuttontext">Finish</span></a>
-        </div>
     </div>
 
 </div> <!-- /container -->
