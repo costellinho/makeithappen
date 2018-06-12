@@ -49,6 +49,7 @@ function checkAnswer(index) {
         game.score += 1;
         spellResult.text("Correct");
         spellResult.removeClass("btn-danger").addClass("btn-success");
+        moveAlienUpTheStairs();
     }else{
         spellResult.text("Incorrect");
         spellResult.removeClass("btn-success").addClass("btn-danger");
@@ -68,6 +69,7 @@ $("#nextButton").on("touchstart click", function(event){
 
     if(game.question === game.levels[game.level].length){
         game.finish();
+        setAlienToTheBottomOfTheStairs();
         $("#game").hide();
         $("#finish").show();
     }
@@ -76,6 +78,23 @@ $("#nextButton").on("touchstart click", function(event){
     $("#spellInputGroup").show();
 
 });
+
+function setAlienToTheBottomOfTheStairs(){
+  game.step = 1;
+  $("#stairsImage").attr("src","./assets/keyFrames/Stairs.png");
+}
+
+function moveAlienUpTheStairs(){
+
+  if (game.step === 5){
+    game.step = 1;
+  } else {
+    game.step += 1;
+  }
+  console.log("Moving alien up the stairs");
+  $("#stairsImage").attr("src","./assets/keyFrames/Stairs" + game.step  +  ".png");
+}
+
 
 //BACK BUTTON
 $("#backButton").on("touchstart click", function(event){
@@ -96,6 +115,7 @@ var game = {
     score: 0,
     level: 0,
     question: 0,
+    step: 1,
     levels: [
         [
             {"word": "A dark, blocked off tunnel", "correct":2, answers: ["CAT","CAV","CAVE"]},
